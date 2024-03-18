@@ -31,7 +31,7 @@ def handle_message(event):
         ],
         model="gpt-3.5-turbo-0125",
         temperature = 0.5,
-        #嘿嘿嘿
+        language="zh-TW"  # 設定語言為繁體中文
     )
     try:
         ret = response['choices'][0]['message']['content'].strip()
