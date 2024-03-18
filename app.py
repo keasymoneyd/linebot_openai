@@ -34,7 +34,7 @@ def handle_message(event):
         ],
         model="gpt-3.5-turbo-0125",
         temperature = 0.5,
-        language="zh-TW"  # 設定語言為繁體中文
+        #language="zh-TW"  # 設定語言為繁體中文
     )
     #openai_message_count += 1  # 計數器增加
     try:
