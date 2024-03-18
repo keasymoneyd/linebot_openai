@@ -12,6 +12,9 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
 handler1 = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 
+# 全域變數用來記錄OpenAI共傳了多少則訊息
+openai_message_count = 0
+
 @app.route('/callback', methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
@@ -33,6 +36,7 @@ def handle_message(event):
         temperature = 0.5,
         language="zh-TW"  # 設定語言為繁體中文
     )
+    openai_message_count += 1  # 計數器增加
     try:
         ret = response['choices'][0]['message']['content'].strip()
     except:
