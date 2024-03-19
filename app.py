@@ -28,9 +28,15 @@ def callback():
 @handler1.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text1=event.message.text
+    #
+    user_ability = {
+        "職業" : "老師" ,
+        "技能" : "體育"
+    }
     response = openai.ChatCompletion.create(
         messages=[
-            {"role": "user", "content": text1}
+            {"role": "user", "content": text1},
+            {"role": "system", "content": "這個GPT的個性資訊:" + str(user_ability)}
         ],
         model="gpt-3.5-turbo-0125",
         temperature = 0.5,
