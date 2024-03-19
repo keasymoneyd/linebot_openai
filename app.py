@@ -30,7 +30,7 @@ def handle_message(event):
     text1=event.message.text
     #
     user_ability = {
-        "職業" : "老師" ,
+        "職業" : "教練" ,
         "技能" : "體育"
     }
     response = openai.ChatCompletion.create(
